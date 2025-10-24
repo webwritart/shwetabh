@@ -1,0 +1,358 @@
+* { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
+
+html { width: 100%; height:100%; overflow:auto; }
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+
+body {
+	height: auto;
+	font-family: 'Roboto', sans-serif;
+    background-color: #FFFFFF;
+}
+
+/* --------------------------------------------------------- TEXT --------------------------------------------------- */
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+
+/* -------------------------------------------------------- HEADINGS ------------------------------------------------ */
+.heading-medium {
+    font-size: 2rem;
+    font-weight: 400;
+}
+.heading-small {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+.heading-large {
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+.heading-extra-large {
+    font-size: 3.5rem;
+    font-weight: 400;
+}
+
+/* --------------------------------------------------------- BUTTONS ------------------------------------------------ */
+.btn-1 {
+    background: #9f2ca2;
+    color: white;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    padding:1% 0%;
+    width: 100%;
+    text-decoration: none;
+}
+.btn-1:hover {
+    background: #77067a;
+    transform: scale(1.02);
+    color:white;
+}
+
+.btn-gray {
+    border: none;
+    background: #898989;
+    color: white;
+    width: 100%;
+    padding: 1% 0%;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+.btn-gray:hover {
+    transform: scale(1.02);
+}
+.complete-profile {
+    font-size: 2rem;
+}
+.whatsapp {
+    width: 80%;
+    background:green;
+    text-decoration: none;
+}
+.whatsapp:hover {
+    background:#2a5e14;
+    text-decoration: none;
+}
+/* --------------------------------------------------- FORMS-CONTAINERS --------------------------------------------- */
+.full-page-form-container {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+.full-page-form-container form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+.default-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.default-form-container form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding:1% 0%;
+}
+
+/* ------------------------------------------------------ FORM-DESIGNS ---------------------------------------------- */
+.form-main label {
+    color: #B27EB3;
+    margin: 0.5% 0%;
+}
+.form-main input, textarea {
+    background: #f8e3f9;
+    border: 1px solid #e5bde6;
+    color: #B27EB3;
+    margin: 0.5% 0%;
+}
+.form-main ::placeholder {
+    color: #B27EB3;
+    opacity: 1; /* Firefox */
+}
+.form-main select {
+    background: #f8e3f9;
+    border: 1px solid #e5bde6;
+    color: #B27EB3;
+    margin: 0.5% 0%;
+}
+
+/* ------------------------------------------------------ DIV ------------------------------------------------------- */
+.full-page-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+/* ----------------------------------------------------- COLORS ----------------------------------------------------- */
+.violet-color {
+    color: #9f2ca2;
+}
+.red-color {
+    color: #d3333c;
+}
+.white-color {
+    color: #FFFFFF;
+}
+/* ----------------------------------------------------- NAVBAR ---------------------------------------------------- */
+
+header a, header a:hover {
+    text-decoration: none;
+    color: white;
+}
+header {
+    padding: 0 20px;
+    background-color: #1d1f1d;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+#brand {
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+#brand a {
+    color: white;
+}
+ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+ul a {
+    color: white;
+}
+ul li {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+ul li:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+#login, #signup {
+    border-radius: 5px;
+    padding: 5px, 8px;
+}
+#login {
+    border: 1px solid #498afb;
+}
+#signup {
+    border: 1px solid #ff3860;
+}
+#login a {
+    color: #498afb;
+}
+#signup a {
+    color: #ff3860;
+}
+#hamburger-icon {
+    margin: auto 0;
+    display: none;
+    cursor: pointer;
+    z-index: 999;
+}
+#hamburger-icon div {
+    width: 35px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+.open .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+.open .bar2 {
+    opacity: 0;
+}
+.open .bar3 {
+    -webkit-transform: rotate(45deg) translate(-6px, -6px);
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+.open .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: auto;
+    width: 100%;
+    background: black;
+    padding-bottom: 5%;
+}
+
+/* ------------------------------------------------------ FOOTER ------------------------------------------------- */
+
+#footer {
+    height: 15vh;
+    background: black;
+    color: #387287;
+    display: flex;
+    padding: 2% 5% 0% 5%;
+    flex-direction: column;
+    text-decoration: none;
+    font-size: 0.9rem;
+    z-index: 5;
+}
+#footer_links {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+
+}
+#footer_links a {
+    padding: 0% 10%;
+    text-decoration: none;
+}
+#footer_links a p {
+    text-decoration: none;
+    color: #ffffff;
+    opacity: 0.5;
+}
+#copyright {
+    padding-top: 1%;
+    display: flex;
+    justify-content: center;
+    opacity: 0.5;
+    color: #ffffff;
+}
+/* --------------------------------------------------- FLASH MESSAGE ------------------------------------------------ */
+.success {
+    color: green;
+}
+.error {
+    color: red;
+}
+
+/* ---------------------------------------------------- RESPONSIVE -------------------------------------------------- */
+@media only screen and (max-width: 600px) {
+    header nav {
+        display:none;
+    }
+    #hamburger-icon {
+        display: block;
+    }
+    .heading-large {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .full-page-form-container form {
+        width: 70%;
+    }
+    .whatsapp {
+        width: 70%;
+    }
+    .heading-large {
+        font-size: 1.7rem;
+        font-weight: 400;
+    }
+}
+@media only screen and (min-width: 900px) {
+    .heading-large {
+        font-size: 2.1rem;
+        font-weight: 400;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .full-page-form-container form {
+        width: 50%;
+    }
+    .whatsapp {
+        width: 50%;
+    }
+    .heading-large {
+        font-size: 2.2rem;
+        font-weight: 400;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .full-page-form-container form {
+        width: 40%;
+    }
+    .whatsapp {
+        width: 40%;
+    }
+    .heading-large {
+        font-size: 2.3rem;
+        font-weight: 400;
+    }
+}
+
+@media only screen and (min-width: 2500px) {
+    .full-page-form-container form {
+        width: 30%;
+    }
+    .whatsapp {
+        width: 30%;
+    }
+    .heading-large {
+        font-size: 2.5rem;
+        font-weight: 400;
+    }
+}

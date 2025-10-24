@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shwetabh Suman</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css')}}"
+    />
+<!--    <link rel="shortcut icon" href="{{ url_for('static', filename='Logo_promotion_writart_tiny.ico') }}">-->
+
+    {% block style %}
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+  <header>
+    <div id="brand"><a href="/">SHWETABH SUMAN</a></div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+      </ul>
+    </nav>
+    <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+      <ul class="mobile-menu">
+        <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  {% block content %}
+  {% endblock %}
+
+  <div id="footer">
+      <div id="copyright">
+        <p>&#169 {{ current_year }} | illustrations.shwetabhsuman.com | All rights reserved | Any sort of infringement may attract legal consequences.</p>
+      </div>
+  </div>
+  </body>
+  <script src="{{ url_for('static', filename='js/base.js')}}"></script>
+</html>
