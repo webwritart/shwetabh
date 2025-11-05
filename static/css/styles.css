@@ -286,6 +286,28 @@ ul li:hover {
     color: red;
 }
 
+/* ---------------------------------------------------- OTHER CSS --------------------------------------------------- */
+.projects-container {
+        display:flex;
+        flex-wrap: wrap;
+        padding: 2% 5%;
+        background: black;
+        text-align: center;
+        color: gray;
+    }
+.projects-container a {
+    text-decoration: none;
+}
+
+.artwork-img-container {
+    display:flex;
+    width: 100%;
+}
+.artwork-img-container img {
+    width: 100%;
+    padding: 0% 10% 2% 10%;
+}
+
 /* ---------------------------------------------------- RESPONSIVE -------------------------------------------------- */
 @media only screen and (max-width: 600px) {
     header nav {
@@ -297,6 +319,10 @@ ul li:hover {
     .heading-large {
         font-size: 1.5rem;
         font-weight: 400;
+    }
+    .artwork-img-container img {
+        width: 100%;
+        padding: 0% 2% 2% 2%;
     }
 }
 @media only screen and (min-width: 600px) {

@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
+<style>
 
-<div style="display:flex; padding: 5% 10%;">
-    <div style="display:flex;width: 100%;">
-        <div style="display:flex; flex-direction:column; width:50%;">
-            <img src="static/images/concepts/Illustration.jpg">
-            <a class="btn-1 text-center">VIEW</a>
-        </div>
+</style>
+<p class="heading-medium text-center" style="padding: 1% 0%;"> ENVIRONMENT CONCEPTS</p>
+<div class="projects-container">
+    {% for project in project_list %}
+    <div style="display:flex; flex-direction:column; width:50%; padding:0% 1% 2% 1%;">
+        <img src="static/images/concepts/{{project}}/hero.jpg">
+        <a class="btn-1 text-center" href="{{url_for('main.concept_artworks', project=project)}}">{{project}}</a>
     </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
