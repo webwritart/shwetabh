@@ -22,8 +22,9 @@ def concept_artworks():
     artwork_list = os.listdir(artworks_dir)
     artwork_url_list = []
     for artwork in artwork_list:
-        artwork_url = 'static/images/concepts/' + project + '/' + artwork
-        artwork_url_list.append(artwork_url)
+        if artwork != 'Hero.jpg':
+            artwork_url = 'static/images/concepts/' + project + '/' + artwork
+            artwork_url_list.append(artwork_url)
     return render_template('concept_artworks.html', project=project, artwork_url_list=artwork_url_list,
                            current_year=current_year)
 
