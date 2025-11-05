@@ -25,6 +25,7 @@ def concept_artworks():
         if artwork != 'Hero.jpg':
             artwork_url = 'static/images/concepts/' + project + '/' + artwork
             artwork_url_list.append(artwork_url)
+    artwork_url_list.sort()
     return render_template('concept_artworks.html', project=project, artwork_url_list=artwork_url_list,
                            current_year=current_year)
 
