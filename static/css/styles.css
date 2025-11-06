@@ -40,18 +40,18 @@ body {
 
 /* --------------------------------------------------------- BUTTONS ------------------------------------------------ */
 .btn-1 {
-    background: #9f2ca2;
-    color: white;
+    background: #511B59;
+    color: #C68ACF;
     border: none;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.15s ease-in-out;
     padding:1% 0%;
     width: 100%;
     text-decoration: none;
 }
 .btn-1:hover {
-    background: #77067a;
-    transform: scale(1.02);
-    color:white;
+    background: #61146B;
+    transform: scale(0.99);
+    color:#DDACE3;
 }
 
 .btn-gray {

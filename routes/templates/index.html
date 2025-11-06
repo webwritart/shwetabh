@@ -7,8 +7,9 @@
 <div class="projects-container">
     {% for project in project_list %}
     <div style="display:flex; flex-direction:column; width:50%; padding:0% 1% 2% 1%;">
-        <img src="static/images/concepts/{{project}}/Hero.jpg">
-        <a class="btn-1 text-center" href="{{url_for('main.concept_artworks', project=project)}}">{{project}}</a>
+        <p class="heading-small">{{project}}</p>
+        <img src="static/images/concepts/{{project}}/Hero.jpg" loading="lazy">
+        <a class="btn-1 text-center" href="{{url_for('main.concept_artworks', project=project)}}">EXPLORE</a>
     </div>
     {% endfor %}
 </div>
