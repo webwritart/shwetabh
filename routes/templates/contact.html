@@ -9,21 +9,37 @@
         background: rgba(0, 0, 0, 0.5);
         padding: 2% 5% 5% 5%;
     }
+    #captcha {
+        display:flex;
+        width:100%;
+        padding-bottom:1%;
+        justify-content: space-between;
+    }
+    #captcha div {
+        width: 50%;
+    }
+    #captcha_input {
+        width:48%;
+    }
 
 </style>
 <div style="width:100%;">
     <div class="full-page-form-container form-main" id="contact-bg">
-        <form action="{{ url_for('main.contact') }}" method="post">
+        <form action="{{ url_for('main.captcha_verification') }}" method="post" id="contact-form">
             <p class="heading-large white-color text-center">DROP A MESSAGE</p>
-            <input type="text" name="name" placeholder="Name">
-            <input type="email" name="email" placeholder="Email">
-            <input type="email" name="email2" placeholder="Please Retype Email">
-            <textarea name="message" placeholder="Message"></textarea>
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="email" name="email2" placeholder="Please Retype Email"required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <div id="captcha">
+                <div style="display:flex; justify-content:center;"><img src="{{captcha}}" width="350" height="50"></div>
+                <input id="captcha_input" type="text" name="captcha" placeholder="Enter Captcha" required>
+            </div>
             <button class="btn-1" type="submit">SEND MESSAGE</button>
             {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
-                  <div class="{{category}}" style="background:white;">{{ message }}</div>
+                  <div class="{{category}}" style="background:black;">{{ message }}</div>
                 {% endfor %}
             {% endif %}
             {% endwith %}
