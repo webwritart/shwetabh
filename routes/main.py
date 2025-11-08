@@ -61,7 +61,7 @@ def captcha_verification():
 
                 success_msg = (f'Dear {name},\n\nThanks for sending me a message.\nI will get back to you as soon as possible. '
                            f':)\n\n\nShwetabh Suman\nConcept Artist & Illustrator\nNew Delhi, India')
-                send_email('IMPORTANT!! - All Portfolio', ['shwetabhartist@gmail.com'], email, message, '', '')
+                send_email('IMPORTANT!! - Main Portfolio', ['shwetabhartist@gmail.com'], email, message, '', '')
                 send_email('MESSAGE SENT - Shwetabh Suman', [email], 'shwetabhartist@gmail.com', success_msg, '', '')
                 flash('Message sent successfully!', 'success')
             else:
