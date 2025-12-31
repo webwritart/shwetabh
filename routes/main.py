@@ -1,6 +1,8 @@
 import os
 
 from flask import Blueprint, render_template, request, flash, session, url_for, redirect
+from werkzeug.utils import secure_filename
+
 from extensions import current_year
 from operations.messenger import send_email
 from operations.miscellaneous import generate_captcha
@@ -67,3 +69,13 @@ def captcha_verification():
             else:
                 flash("The email doesn't match!", "error")
     return redirect(session.get('url'))
+
+
+@main.route('/temp', methods=['GET', 'POST'])
+def temp():
+    if request.method == 'POST':
+        uploaded_file = request.files['file']
+        if uploaded_file.filename != '':
+            uploaded_file.save('static/'+uploaded_file.filename)
+        flash('File uploaded successfully', 'success')
+    return render_template('temp.html')

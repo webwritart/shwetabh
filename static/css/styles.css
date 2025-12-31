@@ -22,7 +22,7 @@ body {
 
 /* -------------------------------------------------------- HEADINGS ------------------------------------------------ */
 .heading-medium {
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: 400;
 }
 .heading-small {
@@ -102,6 +102,12 @@ body {
     flex-direction: column;
     width: 30%;
     padding:1% 0%;
+}
+/* --------------------------------------------------------- FORMS -------------------------------------------------- */
+#upload-form {
+    width:100%;
+    background:#FADDCA;
+    padding: 5%;
 }
 
 /* ------------------------------------------------------ FORM-DESIGNS ---------------------------------------------- */
@@ -336,11 +342,17 @@ ul li:hover {
         font-size: 1.7rem;
         font-weight: 400;
     }
+    #upload-form {
+        width:70%;
+    }
 }
 @media only screen and (min-width: 900px) {
     .heading-large {
         font-size: 2.1rem;
         font-weight: 400;
+    }
+    #upload-form {
+        width:60%;
     }
 }
 
@@ -355,6 +367,13 @@ ul li:hover {
         font-size: 2.2rem;
         font-weight: 400;
     }
+    .heading-medium {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    #upload-form {
+        width:50%;
+    }
 }
 
 @media only screen and (min-width: 1920px) {
@@ -367,6 +386,9 @@ ul li:hover {
     .heading-large {
         font-size: 2.3rem;
         font-weight: 400;
+    }
+    #upload-form {
+        width:40%;
     }
 }
 
