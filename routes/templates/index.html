@@ -23,6 +23,8 @@
     }
     .artworks-container p {
         font-size: 1.2rem;
+        padding-bottom: 0%;
+        margin-bottom: 0%;
     }
 #full-size-img-box {
     display:flex;
@@ -86,13 +88,16 @@
     .artworks-container p {
         font-size: 1rem;
     }
+    .artworks img {
+        max-height: 230px;
+    }
 }
 .artwork-popup p, .artwork-popup a {
     font-size: 1rem;
 }
 @media only screen and (max-width : 1440px) {
     .artworks img {
-        max-height: 200px;
+        max-height: 170px;
     }
     .artworks-container h3{
         font-size: 1.6rem;
@@ -113,7 +118,7 @@
     padding-bottom:2%;
 }
  .artworks img {
-        height: 150px;
+        height: 128px;
     }
     .artworks-container p {
         font-size: 0.8rem;
@@ -124,7 +129,7 @@
 }
 @media only screen and (max-width : 768px) {
      .artworks img {
-        height: 110px;
+        height: 120px;
     }
     .artworks-container h3{
         font-size: 1.3rem;
@@ -138,7 +143,7 @@
 }
 @media only screen and (max-width : 576px) {
     .artworks img {
-        height: 90px;
+        height: 100px;
     }
     .artworks-container h3{
         font-size: 1.2rem;
@@ -155,7 +160,13 @@
 <div style="background: black;">
     <div class="artworks-container">
         <h3>COVEN - Concept & Design</h3>
-        <P>Please click to view in large size.</P>
+        <P>Please click small images to view in large size.</P>
+    </div>
+    <div class="cover-img-container">
+        <img src="../static/images/concepts/Coven/full/Colored_Render-f.jpg" loading="lazy">
+    </div>
+    <div class="artworks-container">
+        <P>Please click small images to view in large size.</P>
         <div class="artworks">
         {% for img in dict_1 %}
         <a type="button" onclick="openFullImage('{{dict_1[img]['full']}}', '{{dict_1[img]['title']}}')"><img src="{{dict_1[img]['thumbnail']}}"></a>
@@ -163,8 +174,18 @@
         </div>
     </div>
     <div class="cover-img-container">
-        <img src="../static/images/concepts/Coven/full/4-f.jpg" loading="lazy">
+        <img src="../static/images/concepts/Coven/full/Level_Basic_Layout-f.jpg" loading="lazy">
     </div>
+    <div class="artworks-container">
+        <P>Please click small images to view in large size.</P>
+        <div class="artworks">
+        {% for img in dict_2 %}
+        <a type="button" onclick="openFullImage('{{dict_2[img]['full']}}', '{{dict_2[img]['title']}}')"><img src="{{dict_2[img]['thumbnail']}}"></a>
+        {% endfor %}
+        </div>
+    </div>
+
+<!-- Image full size zoom popup -->
     <div id="artwork-popup-overlay" onclick="closeFullImage()"></div>
     <div class="artwork-popup">
         <div id="artwork-popup">

@@ -19,8 +19,13 @@ def home():
     thumbnail_img_list = os.listdir(thumbnail_img_path)
 
     dict_1 = {}
-    img_list_1 = ['2', '1', '3']
+    img_list_1 = ['selected 3 thumbnails', 'thumbnails exploration', 'developed final thumbnail']
     index_1 = 1
+
+    dict_2 = {}
+    img_list_2 = ['tower', 'tower silhouettes', 'tower developed thumbnails', 'tower concept', 'cart', 'cart wireframe',
+                  'broom drawing', 'witch broom jet propelled', 'sculptures potions concept']
+    index_2 = 1
 
 # searches and finds exact filename in full and thumbnail folder and prepares dict entry
     for img in img_list_1:
@@ -28,7 +33,7 @@ def home():
         full_img_file_path = full_img_path + full_img
         thumbnail = text_match(img, thumbnail_img_list)[0]
         thumbnail_file_path = thumbnail_img_path + thumbnail
-        title = Path(full_img).stem[:-2]
+        title = Path(full_img).stem[:-2].replace('_', ' ')
         img = {
             'title': title,
             'thumbnail': '../' + thumbnail_file_path,
@@ -37,8 +42,23 @@ def home():
         dict_1[index_1] = img
         index_1 += 1
 
+    for img in img_list_2:
+        full_img = text_match(img, full_img_list)[0]
+        full_img_file_path = full_img_path + full_img
+        thumbnail = text_match(img, thumbnail_img_list)[0]
+        thumbnail_file_path = thumbnail_img_path + thumbnail
+        title = Path(full_img).stem[:-2].replace('_', ' ')
+        img = {
+            'title': title,
+            'thumbnail': '../' + thumbnail_file_path,
+            'full': '../' + full_img_file_path
+        }
+        dict_2[index_2] = img
+        index_2 += 1
 
-    return render_template('index.html', current_year=current_year, dict_1=dict_1)
+
+
+    return render_template('index.html', current_year=current_year, dict_1=dict_1, dict_2=dict_2)
 
 
 @main.route('/concept_artworks', methods=['GET', 'POST'])

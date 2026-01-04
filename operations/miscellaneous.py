@@ -70,7 +70,7 @@ def resize_image(folder, size_f_t):
         if os.path.isfile(image_path):
             if a.endswith(".jpg") or a.endswith(".png"):
 
-                fixed_full_height = 1536
+                fixed_full_height = 864
                 fixed_thumbnail_height = 300
 
                 if size_f_t == 'f':
@@ -86,7 +86,7 @@ def resize_image(folder, size_f_t):
                     filename = a
                     new_name = filename.split('.')
                     file_name = new_name[0].split('\\')[-1]
-                    file_name_filled_space = file_name.replace(' ', '-')
+                    file_name_filled_space = file_name.replace(' ', '_')
                     # new_filename = file_name_filled_space + '.jpg'
                     # extension = new_filename.pop()
 
