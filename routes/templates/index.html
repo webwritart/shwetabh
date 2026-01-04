@@ -1,17 +1,183 @@
 {% extends "base.html" %}
 {% block content %}
 <style>
+    .artworks-container {
+        display:flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 2% 5%;
+        background: black;
+        text-align: center;
+        color: gray;
+        width: 100%;
+    }
 
+    .artworks img {
+        max-height: 300px;
+        max-width: 100%;
+        object-fit: cover;
+        margin: 1%;
+    }
+    .artworks-container h3{
+        font-size: 2.2rem;
+    }
+    .artworks-container p {
+        font-size: 1.2rem;
+    }
+#full-size-img-box {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background: white;
+}
+#full-size-img-box img {
+    max-height:80vh;
+    max-width:100vw;
+}
+#full-size-img-box h3 {
+    font-size:1.5rem;
+}
+.artwork-popup {
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+#artwork-popup {
+    display:none;
+}
+.artwork-popup {
+    z-index: 100;
+}
+#artwork-popup-overlay {
+    display: none; /* Hidden by default */
+    position: fixed; /* Cover the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    z-index: 1; /* Ensure it's behind the popup */
+}
+.artwork-popup p, .artwork-popup a {
+    font-size: 1rem;
+}
+
+.cover-img-container {
+    display: flex;
+    justify-content: center;
+    background: black;
+    width: 100%;
+}
+.cover-img-container img{
+    object-fit: cover;
+    max-height: 80vh;
+    max-width: 70%;
+}
+
+@media only screen and (min-width : 1900px) {
+
+}
+@media only screen and (max-width : 1900px) {
+    .artworks-container h3{
+        font-size: 1.8rem;
+    }
+    .artworks-container p {
+        font-size: 1rem;
+    }
+}
+.artwork-popup p, .artwork-popup a {
+    font-size: 1rem;
+}
+@media only screen and (max-width : 1440px) {
+    .artworks img {
+        max-height: 200px;
+    }
+    .artworks-container h3{
+        font-size: 1.6rem;
+    }
+    .artworks-container p {
+        font-size: 0.9rem;
+    }
+
+#full-size-img-box h3 {
+    font-size:1.3rem;
+}
+}
+@media only screen and (max-width : 1024px) {
+    .artworks-container h3{
+        font-size: 1.4rem;
+    }
+#artwork-popup {
+    padding-bottom:2%;
+}
+ .artworks img {
+        height: 150px;
+    }
+    .artworks-container p {
+        font-size: 0.8rem;
+    }
+#full-size-img-box h3 {
+    font-size:1.2rem;
+}
+}
+@media only screen and (max-width : 768px) {
+     .artworks img {
+        height: 110px;
+    }
+    .artworks-container h3{
+        font-size: 1.3rem;
+    }
+    .artwork-popup p, .artwork-popup a {
+        font-size: 0.8rem;
+    }
+#full-size-img-box h3 {
+    font-size:1.1rem;
+}
+}
+@media only screen and (max-width : 576px) {
+    .artworks img {
+        height: 90px;
+    }
+    .artworks-container h3{
+        font-size: 1.2rem;
+        padding-top:4%;
+    }
+    .artwork-popup p, .artwork-popup a {
+        font-size: 0.7rem;
+    }
+#full-size-img-box h3 {
+    font-size:1rem;
+}
+}
 </style>
-<p class="heading-medium text-center" style="padding: 1% 0%;"> ENVIRONMENT/LEVEL CONCEPTS</p>
-<div class="projects-container">
-    {% for project in project_list %}
-    <div style="display:flex; flex-direction:column; width:50%; padding:0% 1% 2% 1%;">
-        <p class="heading-small">{{project}}</p>
-        <img src="static/images/concepts/{{project}}/Hero.jpg" loading="lazy">
-        <a class="btn-1 text-center" href="{{url_for('main.concept_artworks', project=project)}}">EXPLORE</a>
+<div style="background: black;">
+    <div class="artworks-container">
+        <h3>COVEN - Concept & Design</h3>
+        <P>Please click to view in large size.</P>
+        <div class="artworks">
+        {% for img in dict_1 %}
+        <a type="button" onclick="openFullImage('{{dict_1[img]['full']}}', '{{dict_1[img]['title']}}')"><img src="{{dict_1[img]['thumbnail']}}"></a>
+        {% endfor %}
+        </div>
     </div>
-    {% endfor %}
+    <div class="cover-img-container">
+        <img src="../static/images/concepts/Coven/full/4-f.jpg" loading="lazy">
+    </div>
+    <div id="artwork-popup-overlay" onclick="closeFullImage()"></div>
+    <div class="artwork-popup">
+        <div id="artwork-popup">
+            <div style="display:flex; justify-content:space-between; width:100%; background:black; color:gray; padding:1% 2% 0% 2%;">
+                <p>IMAGE VIEWER</p>
+                <a type="button" style="color:white;" onclick="closeFullImage()">Close</a>
+            </div>
+            <div id="full-size-img-box">
+                <h3 id="artwork-title"></h3>
+                <img id="full-size-img" src="">
+            </div>
+        </div>
+    </div>
 </div>
-
+<script src="/static/js/portfolio.js"></script>
 {% endblock %}

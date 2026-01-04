@@ -1,5 +1,5 @@
 import os
-
+from difflib import SequenceMatcher
 from PIL import Image
 from datetime import datetime
 import random
@@ -51,59 +51,77 @@ def delete_log(date):
         log("Error in deleting log", "error")
 
 
-def resize_image(input_folder, size_f_t, output_folder):
-    global new_height, output_filepath
-    if input_folder[-1] != '/':
-        input_folder = input_folder + '/'
-    all_images = os.listdir(input_folder)
-    if output_folder[-1] != '/':
-        output_folder = output_folder + '/'
+def resize_image(folder, size_f_t):
+    global new_height, output_filepath, input_folder, new_filename
+
+    if folder[-1] != '/':
+        input_folder = folder + '/'
+    all_images = os.listdir(folder)
+
+    output_full_folder = 'full/'
+    output_thumbnail_folder = 'thumbnail/'
+    output_full_path = input_folder + output_full_folder
+    output_thumbnail_path = input_folder + output_thumbnail_folder
 
     for a in all_images:
         image_path = input_folder + a
+        execute = False
 
-        if a.endswith(".jpg") or a.endswith(".png"):
+        if os.path.isfile(image_path):
+            if a.endswith(".jpg") or a.endswith(".png"):
 
-            fixed_full_height = 900
-            fixed_thumbnail_height = 200
-
-            if size_f_t == 'f':
-                new_height = fixed_full_height
-            elif size_f_t == 't':
-                new_height = fixed_thumbnail_height
-            else:
-                pass
-            try:
-                image = Image.open(image_path)
-                width = image.width
-                height = image.height
-                filename = image.filename
-                new_name = filename.split('.')
-                file_name = new_name[0].split('\\')[-1]
-                file_name_filled_space = file_name.replace(' ', '-')
-                # new_filename = file_name_filled_space + '.jpg'
-                # extension = new_filename.pop()
+                fixed_full_height = 1536
+                fixed_thumbnail_height = 300
 
                 if size_f_t == 'f':
-                    new_filename = f"{file_name_filled_space}-f.jpg"
-                    output_filepath = output_folder + new_filename
+                    new_height = fixed_full_height
                 elif size_f_t == 't':
-                    new_filename = f"{file_name_filled_space}-t.jpg"
-                    output_filepath = output_folder + new_filename
+                    new_height = fixed_thumbnail_height
+                else:
+                    pass
+                try:
+                    image = Image.open(image_path)
+                    width = image.width
+                    height = image.height
+                    filename = a
+                    new_name = filename.split('.')
+                    file_name = new_name[0].split('\\')[-1]
+                    file_name_filled_space = file_name.replace(' ', '-')
+                    # new_filename = file_name_filled_space + '.jpg'
+                    # extension = new_filename.pop()
 
-                ratio = (new_height / float(height))
-                new_width = int(float(width * ratio))
+                    if size_f_t == 'f':
+                        new_filename = f"{file_name_filled_space}-f.jpg"
+                        output_filepath = output_full_path + new_filename
+                        if not os.path.exists(output_full_path):
+                            os.mkdir(output_full_path)
+                        if new_filename not in os.listdir(output_full_path):
+                            execute = True
+                        else:
+                            print('File already resized')
+                    elif size_f_t == 't':
+                        new_filename = f"{file_name_filled_space}-t.jpg"
+                        output_filepath = output_thumbnail_path + new_filename
+                        if not os.path.exists(output_thumbnail_path):
+                            os.mkdir(output_thumbnail_path)
+                        if new_filename not in os.listdir(output_thumbnail_path):
+                            execute = True
+                        else:
+                            print('File already resized')
+                    if execute:
+                        ratio = (new_height / float(height))
+                        new_width = int(float(width * ratio))
 
-                image = image.resize((new_width, new_height))
-                image = image.convert('RGB')
-                if not os.path.exists(output_folder):
-                    os.mkdir(output_folder)
-                image.save(output_filepath)
+                        image = image.resize((new_width, new_height))
+                        image = image.convert('RGB')
 
-            except Exception as e:
+                        image.save(output_filepath)
+                        print('Image saved')
+
+                except Exception as e:
+                    pass
+            else:
                 pass
-        else:
-            pass
 
 
 def generate_captcha():
@@ -116,6 +134,12 @@ def generate_captcha():
     captcha_uri = f"data:image/png;base64, {encoded_string}"
     return captcha_num, captcha_uri
 
+def text_match(target, options_list):
+    def similarity_ratio(a, b):
+        return SequenceMatcher(None, a, b).ratio()
 
+    best_match = max(options_list, key=lambda option: similarity_ratio(target, option))
+    match_ratio = f'{int(similarity_ratio(target, best_match)*100)}%'
+    return best_match, match_ratio
 
 

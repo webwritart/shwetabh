@@ -1,18 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
 
-<style>
-
-</style>
-
-<p class="heading-large text-center">{{project}}</p>
-
-<div>
-    {% for artwork_url in artwork_url_list %}
-    <div class="artwork-img-container">
-        <img src="{{artwork_url}}" loading="lazy">
-    </div>
-    {% endfor %}
-</div>
 
 {% endblock %}

@@ -1,11 +1,10 @@
 import os
-
+from pathlib import Path
 from flask import Blueprint, render_template, request, flash, session, url_for, redirect
 from werkzeug.utils import secure_filename
-
 from extensions import current_year
 from operations.messenger import send_email
-from operations.miscellaneous import generate_captcha
+from operations.miscellaneous import generate_captcha, text_match
 from datetime import datetime
 
 
@@ -14,9 +13,32 @@ main = Blueprint('main', __name__, static_folder='static', template_folder='temp
 
 @main.route('/', methods=['GET', 'POST'])
 def home():
-    projects_dir = 'static/images/concepts/'
-    project_list = os.listdir(projects_dir)
-    return render_template('index.html',project_list=project_list, current_year=current_year)
+    full_img_path = 'static/images/concepts/Coven/full/'
+    thumbnail_img_path = 'static/images/concepts/Coven/thumbnail/'
+    full_img_list = os.listdir(full_img_path)
+    thumbnail_img_list = os.listdir(thumbnail_img_path)
+
+    dict_1 = {}
+    img_list_1 = ['2', '1', '3']
+    index_1 = 1
+
+# searches and finds exact filename in full and thumbnail folder and prepares dict entry
+    for img in img_list_1:
+        full_img = text_match(img, full_img_list)[0]
+        full_img_file_path = full_img_path + full_img
+        thumbnail = text_match(img, thumbnail_img_list)[0]
+        thumbnail_file_path = thumbnail_img_path + thumbnail
+        title = Path(full_img).stem[:-2]
+        img = {
+            'title': title,
+            'thumbnail': '../' + thumbnail_file_path,
+            'full': '../' + full_img_file_path
+        }
+        dict_1[index_1] = img
+        index_1 += 1
+
+
+    return render_template('index.html', current_year=current_year, dict_1=dict_1)
 
 
 @main.route('/concept_artworks', methods=['GET', 'POST'])
