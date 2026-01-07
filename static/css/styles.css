@@ -132,7 +132,7 @@ body {
     margin: 0.5% 0%;
 }
 
-/* ------------------------------------------------------ DIV ------------------------------------------------------- */
+/* ---------------------------------------------------- CONTAINER --------------------------------------------------- */
 .full-page-div {
     display: flex;
     justify-content: center;
@@ -140,14 +140,15 @@ body {
     height: 90vh;
 }
 
+
 /* ----------------------------------------------------- COLORS ----------------------------------------------------- */
-.violet-color {
+.violet {
     color: #9f2ca2;
 }
-.red-color {
+.red {
     color: #d3333c;
 }
-.white-color {
+.white {
     color: #FFFFFF;
 }
 /* ----------------------------------------------------- NAVBAR ---------------------------------------------------- */
@@ -258,7 +259,7 @@ ul li:hover {
     padding: 2% 5% 0% 5%;
     flex-direction: column;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.5rem;
     z-index: 5;
 }
 #footer_links {
@@ -314,6 +315,33 @@ ul li:hover {
     padding: 0% 10% 2% 10%;
 }
 
+/* ----------------------------------------------- PORTFOLIO -------------------------------------------------------- */
+.full-width-column-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0% 0%;
+    background: black;
+    width: 100%;
+}
+.two-img {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+.full-width-column-container img {
+    max-width: 100%;
+    object-fit: contain;
+    padding: 0.5%;
+}
+.two-img img {
+    max-width: 100%;
+    object-fit: contain;
+    padding: 0.5% 1%;
+}
+
 /* ---------------------------------------------------- RESPONSIVE -------------------------------------------------- */
 @media only screen and (max-width: 600px) {
     header nav {
@@ -354,7 +382,23 @@ ul li:hover {
     #upload-form {
         width:60%;
     }
+    .full-width-column-container {
+        padding: 0% 10%;
+    }
+    .two-img {
+        flex-direction: row;
+        justify-content: center;
+        align-items: none;
+    }
+    .two-img img {
+        max-width: 49%;
+        padding: 0% 0.5%;
+    }
+    #footer {
+        font-size: 0.9rem;
+    }
 }
+
 
 @media only screen and (min-width: 1280px) {
     .full-page-form-container form {

@@ -80,6 +80,8 @@
     max-width: 70%;
 }
 
+
+
 @media only screen and (min-width : 1900px) {
 
 }
@@ -156,51 +158,76 @@
     }
 #full-size-img-box h3 {
     font-size:1rem;
+
 }
 }
 </style>
-<div style="background: black;">
-    <div class="artworks-container">
-        <h3>COVEN - Concept & Design</h3>
-    </div>
-    <div class="cover-img-container">
-        <img src="../static/images/concepts/Coven/full/Colored_Render-f.jpg" loading="lazy">
-    </div>
-    <div class="artworks-container">
-        <P>Please click small images to view in large size.</P>
-        <div class="artworks">
-        {% for img in dict_1 %}
-        <a type="button" onclick="openFullImage('{{dict_1[img]['full']}}', '{{dict_1[img]['title']}}')"><img src="{{dict_1[img]['thumbnail']}}"></a>
-        {% endfor %}
-        </div>
-    </div>
-    <div class="cover-img-container">
-        <img src="../static/images/concepts/Coven/full/Level_Basic_Layout-f.jpg" loading="lazy">
-        <p style="color:#BFBFBF;">Level Basic Layout</p>
-    </div>
-    <div class="artworks-container">
-        <P>Please click small images to view in large size.</P>
-        <div class="artworks">
-        {% for img in dict_2 %}
-        <a type="button" onclick="openFullImage('{{dict_2[img]['full']}}', '{{dict_2[img]['title']}}')"><img src="{{dict_2[img]['thumbnail']}}"></a>
-        {% endfor %}
-        </div>
-    </div>
+<!--<div style="background: black;">-->
+<!--    <div class="artworks-container">-->
+<!--        <h3>COVEN - Concept & Design</h3>-->
+<!--    </div>-->
+<!--    <div class="cover-img-container">-->
+<!--        <img src="../static/images/concepts/Coven/full/Colored_Render-f.jpg" loading="lazy">-->
+<!--    </div>-->
+<!--    <div class="artworks-container">-->
+<!--        <P>Please click small images to view in large size.</P>-->
+<!--        <div class="artworks">-->
+<!--        {% for img in dict_1 %}-->
+<!--        <a type="button" onclick="openFullImage('{{dict_1[img]['full']}}', '{{dict_1[img]['title']}}')"><img src="{{dict_1[img]['thumbnail']}}"></a>-->
+<!--        {% endfor %}-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="cover-img-container">-->
+<!--        <img src="../static/images/concepts/Coven/full/Level_Basic_Layout-f.jpg" loading="lazy">-->
+<!--        <p style="color:#BFBFBF;">Level Basic Layout</p>-->
+<!--    </div>-->
+<!--    <div class="artworks-container">-->
+<!--        <P>Please click small images to view in large size.</P>-->
+<!--        <div class="artworks">-->
+<!--        {% for img in dict_2 %}-->
+<!--        <a type="button" onclick="openFullImage('{{dict_2[img]['full']}}', '{{dict_2[img]['title']}}')"><img src="{{dict_2[img]['thumbnail']}}"></a>-->
+<!--        {% endfor %}-->
+<!--        </div>-->
+<!--    </div>-->
 
-<!-- Image full size zoom popup -->
-    <div id="artwork-popup-overlay" onclick="closeFullImage()"></div>
-    <div class="artwork-popup">
-        <div id="artwork-popup">
-            <div style="display:flex; justify-content:space-between; width:100%; background:black; color:gray; padding:1% 2% 0% 2%;">
-                <p>IMAGE VIEWER</p>
-                <a type="button" style="color:white;" onclick="closeFullImage()">Close</a>
-            </div>
-            <div id="full-size-img-box">
-                <h3 id="artwork-title"></h3>
-                <img id="full-size-img" src="">
-            </div>
-        </div>
+<!--&lt;!&ndash; Image full size zoom popup &ndash;&gt;-->
+<!--    <div id="artwork-popup-overlay" onclick="closeFullImage()"></div>-->
+<!--    <div class="artwork-popup">-->
+<!--        <div id="artwork-popup">-->
+<!--            <div style="display:flex; justify-content:space-between; width:100%; background:black; color:gray; padding:1% 2% 0% 2%;">-->
+<!--                <p>IMAGE VIEWER</p>-->
+<!--                <a type="button" style="color:white;" onclick="closeFullImage()">Close</a>-->
+<!--            </div>-->
+<!--            <div id="full-size-img-box">-->
+<!--                <h3 id="artwork-title"></h3>-->
+<!--                <img id="full-size-img" src="">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="full-width-column-container">
+    <p class="heading-large white">COVEN-Concept & Design</p>
+    <div class="two-img">
+        <img src="../static/images/concepts/Coven/full/Colored_Render-f.jpg" loading="lazy">
+        <img src="../static/images/concepts/Coven/full/Developed_Final_Thumbnail-f.jpg" loading="lazy">
     </div>
+    <img src="../static/images/concepts/Coven/full/Selected_3_Thumbnails-f.jpg" loading="lazy">
+    <img src="../static/images/concepts/Coven/full/Thumbnail_Exploration-f.jpg" loading="lazy">
+    <div class="two-img">
+        <img src="../static/images/concepts/Coven/full/Level_Basic_Layout-f.jpg" loading="lazy">
+        <img src="../static/images/concepts/Coven/full/Tower_Silhouettes-f.jpg" loading="lazy">
+    </div>
+    <img src="../static/images/concepts/Coven/full/Tower_Developed_Thumbnails-f.jpg" loading="lazy">
+    <img src="../static/images/concepts/Coven/full/Tower_Concept-f.jpg" loading="lazy">
+    <img src="../static/images/concepts/Coven/full/Tower-f.jpg" loading="lazy">
+    <img src="../static/images/concepts/Coven/full/Cart-f.jpg" loading="lazy">
+    <img src="../static/images/concepts/Coven/full/Broom_Drawing-f.jpg" loading="lazy">
+    <img src="../static/images/concepts/Coven/full/Witch_Broom_-_Jet_Propelled-f.jpg" loading="lazy">
+    <img src="../static/images/concepts/Coven/full/Trim_Set_1-f.jpg" loading="lazy">
+    <img src="../static/images/concepts/Coven/full/gateway_streetlight-f.jpg" loading="lazy">
+    <img src="../static/images/concepts/Coven/full/Gateway-f.jpg" loading="lazy">
+    <img src="../static/images/concepts/Coven/full/Street_lamp-f.jpg" loading="lazy">
+    <img src="../static/images/concepts/Coven/full/Unity-f.jpg" loading="lazy">
 </div>
 <script src="/static/js/portfolio.js"></script>
 {% endblock %}
