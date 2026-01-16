@@ -70,7 +70,7 @@ def resize_image(folder, size_f_t):
         if os.path.isfile(image_path):
             if a.endswith(".jpg") or a.endswith(".png"):
 
-                fixed_full_height = 864
+                fixed_full_height = 1080
                 fixed_thumbnail_height = 300
 
                 if size_f_t == 'f':
