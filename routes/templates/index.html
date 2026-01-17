@@ -228,6 +228,7 @@ iframe {
         <img src="../static/images/concepts/Coven/full/Tower_Silhouettes-f.jpg" loading="lazy">
     </div>
     <img src="../static/images/concepts/Coven/full/Tower_Developed_Thumbnails-f.jpg" loading="lazy">
+    <img src="../static/images/concepts/Coven/full/Unity_ss-f.jpg" loading="lazy">
     <img src="../static/images/concepts/Coven/full/Tower_Concept-f.jpg" loading="lazy">
     <img src="../static/images/concepts/Coven/full/Tower-f.jpg" loading="lazy">
     <img src="../static/images/concepts/Coven/full/Cart-f.jpg" loading="lazy">
@@ -237,7 +238,15 @@ iframe {
     <img src="../static/images/concepts/Coven/full/gateway_streetlight-f.jpg" loading="lazy">
     <img src="../static/images/concepts/Coven/full/Gateway-f.jpg" loading="lazy">
     <img src="../static/images/concepts/Coven/full/Street_lamp-f.jpg" loading="lazy">
-    <img src="../static/images/concepts/Coven/full/Unity-f.jpg" loading="lazy">
+    <p class="heading-medium white">Custom Multi-Texture Shader</p>
+    <p class="text text-center white">As Unity 6.3 deprecated POLYBRUSH I created my own URP shader with the following features:</p>
+    <div class="text white">
+        <li> 4 layer textures with all the main maps (Albedo, Metallic-smoothness, Normal)</li><li>Additional color
+        multiplier with each Albedos to for final Albedo adjustment</li><li>Masking using RGB Map</li><li>Separate
+        Metallic, Smoothness and Normal intensity controller for each Textures</li><li>Unified tiling input (common for
+        all maps) for each texture</li><li>Optimized Texture samples using SamplerState</li>
+    </div>
+    <img src="../static/images/concepts/Coven/full/Multi-texture-shader-graph-f.jpg" loading="lazy">
 </div>
 <script src="/static/js/portfolio.js"></script>
 {% endblock %}
